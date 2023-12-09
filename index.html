@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-color:  rgb(214, 93, 134);
+    }
+    .container{
+        background-color: rgb(214, 93, 134);
+        margin-right: auto;
+        margin-left: auto;
+        text-align: center;
+        height: 100%;
+        width: auto;
+    }
+    .guessemoji{
+        text-align: center;
+        font-size: 60px;
+        padding-top: 40px;
+    }
+    #text{
+       text-align: center;
+    }
+    .display{
+      
+        margin-left: auto;
+        margin-right: auto;
+    }
+     .emoji{
+        
+        display: inline;
+        font-size: 48px;
+        cursor: pointer;
+        background-color: rgb(234, 18, 90);
+    }
+    #round{
+        font-size: large;
+        color: greenyellow;
+    }
+    h4{
+        text-align: center;
+        color: cyan;
+    }
+    h2{
+        text-align: center;
+        color: gold;
+    }
+</style>
+<body>
+    <h2>GUESSING EMOJI GAME</h2>
+    <h4>YOU HAVE MAXIMUM 3 TRIES TO GUESS A EMOJI</h4>
+    <div id="round"></div>
+    <div class="container">
+    <div class="guessemoji">&#129335;</div>
+
+    <div id="text">GUESS A EMOJI?</div>
+    <div class="display">
+        <h1 class="emoji" onclick="compare(1)">&#128526;</h1>
+        <h1 class="emoji" onclick="compare(2)">&#128525;</h1>
+        <h1 class="emoji" onclick="compare(3)">&#128524;</h1><br>
+        <h1 class="emoji" onclick="compare(4)">&#128523;</h1>
+
+        <h1 class="emoji" onclick="compare(5)">&#128514;</h1>
+        <h1 class="emoji" onclick="compare(6)">&#128521;</h1><br>
+        <h1 class="emoji" onclick="compare(7)">&#128520;</h1>
+        <h1 class="emoji" onclick="compare(8)">&#128527;</h1>
+        <h1 class="emoji" onclick="compare(9)">&#128519;</h1>
+    </div>
+</div>
+</body>
+<script>
+   
+  
+    let text = document.getElementById("text")
+    let round = document.getElementById("round")
+    let r=1
+    const array = [
+       1,2,3,4,5,6,7,8,9
+    ]
+    let random = array[Math.floor(Math.random()*9)]
+    
+    function compare(val){
+        
+        round.textContent="ROUND "+r
+      
+    if(r<3)
+    {
+        
+        if(random==val){
+    text.textContent="YOU GUESS THAT EMOJI"
+   
+    setTimeout(function(){
+        alert("you guess the emoji")
+        text.textContent="GUESS A EMOJI?"
+        r=1
+    round.textContent=""
+    },500)
+    
+     random = array[Math.floor(Math.random()*9)]
+  
+        }
+        r++
+    }
+else{
+
+random = array[Math.floor(Math.random()*9)]
+            setTimeout(function(){
+                alert("Game Over You cannot guess correct emoji")
+                text.textContent="GUESS A EMOJI?"
+                r=1
+    round.textContent=""
+            },500)
+        }
+    }
+
+</script>
+</html>
